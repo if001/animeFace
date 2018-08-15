@@ -1,0 +1,20 @@
+<div class="row">
+    <div class="mx-auto" style="width: 300px;">
+	<p class="contents-title">Input Form</p>
+	<form [formGroup]="formGroup" novalidate (ngSubmit)="onSubmit()" style="text-align: center;">
+	    
+	    <label class="img-upload">
+		＋顔写真を選択
+		<input type="file" (change)="onFileChange($event)" style="display:none;"/>
+	    </label>
+
+	    <!-- <button *ngIf="!(formGroup.invalid || formGroup.pristine); else elseButton" class="btn btn-info btn-lg" style="margin:10px" type="submit" [disabled]="formGroup.invalid || formGroup.pritine">判定スタート</button> -->
+	    <button class="btn btn-info btn-lg" style="margin:10px" type="submit" [disabled]="formGroup.invalid || formGroup.pritine">判定スタート</button>
+	    <!-- <ng-template #elseButton>
+		 <span class="btn btn-info btn-lg disabled" style="margin:10px">判定スタート</span>
+		 </ng-template> -->
+	    
+	</form>
+	<img *ngIf="imgPreview.length != 0" [src]="imgPreview" style="width:300px;height:300px;" border="2"/>
+    </div>
+</div>
